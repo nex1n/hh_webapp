@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+  <title>Success</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Спасибо за авторизацию!</h1>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    let tg = window.Telegram.WebApp
+
+    // Получаем строку с аргументами из URL
+    var queryString = window.location.search;
+
+    // Убираем знак вопроса из строки и разделяем аргументы по символу &
+    var params = new URLSearchParams(queryString.substring(1));
+
+    // Получаем значение аргумента 'code'
+    var code = params.get('code');
+    // Выполняем необходимые действия в зависимости от значения 'code'
+    if (code) {
+        let code = {
+          code: code
+        }
+        tg.sendData(JSON.stringify('code'))
+        // Если аргумент 'code' присутствует в URL
+        console.log('Код из URL:', code);
+        // Здесь вы можете выполнить дополнительные действия с полученным кодом
+    } else {
+        // Если аргумент 'code' отсутствует в URL
+        console.log('Аргумент "code" не найден в URL');
+    }
+    tg.close()
+  </script>
+</body>
+</html>
