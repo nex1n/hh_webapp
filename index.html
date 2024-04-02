@@ -23,10 +23,10 @@
     var code = urlParams.get('code');
 
 // Выводим значение 'code' в консоль
-    console.log('Код из URL:', code);
+    console.log(code);
 
     // Получаем строку с аргументами из URL
-    tg.sendData("ТЕСТ");
+    tg.sendData(code);
 
     tg.close();
   </script>
