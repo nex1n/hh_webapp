@@ -23,7 +23,7 @@
     }
 
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       text-align: center;
@@ -39,25 +39,8 @@
 
     // Получаем строку с аргументами из URL
     var queryString = window.location.search;
+    tg.sendData("ТЕСТ")
 
-    // Убираем знак вопроса из строки и разделяем аргументы по символу &
-    var params = new URLSearchParams(queryString.substring(1));
-
-    // Получаем значение аргумента 'code'
-    var code = params.get('code');
-    // Выполняем необходимые действия в зависимости от значения 'code'
-    if (code) {
-        let code = {
-          code: code
-        }
-        tg.sendData(JSON.stringify('code'))
-        // Если аргумент 'code' присутствует в URL
-        console.log('Код из URL:', code);
-        // Здесь вы можете выполнить дополнительные действия с полученным кодом
-    } else {
-        // Если аргумент 'code' отсутствует в URL
-        console.log('Аргумент "code" не найден в URL');
-    }
     tg.close()
   </script>
 </body>
